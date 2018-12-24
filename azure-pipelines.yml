@@ -27,9 +27,3 @@ steps:
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
-- task: AzureRmWebAppDeployment@3
-  inputs:
-    azureSubscription: 'Free Trial'
-    WebAppName: 'ContosoUniversity-demo'
-    Package: $(build.artifactStagingDirectory)\WebApp.zip
