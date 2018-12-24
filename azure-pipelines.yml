@@ -28,7 +28,8 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
+- task: AzureRmWebAppDeployment@3
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    azureSubscription: '1a3be396-9e80-4129-8428-46191f2394dc'
+    WebAppName: 'ContosoUniversity-demo'
+    Package: $(build.artifactStagingDirectory)\WebApp.zip
