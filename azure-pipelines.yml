@@ -30,6 +30,6 @@ steps:
 
 - task: AzureRmWebAppDeployment@3
   inputs:
-    azureSubscription: '1a3be396-9e80-4129-8428-46191f2394dc'
+    azureSubscription: 'Free Trial'
     WebAppName: 'ContosoUniversity-demo'
     Package: $(build.artifactStagingDirectory)\WebApp.zip
