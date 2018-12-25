@@ -32,3 +32,22 @@ steps:
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactstagingdirectory)\\"'
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
+    
+- task: AzureRmWebAppDeployment@3
+  displayName: 'Azure App Service Deploy: ContosoUniversity-demo'
+  inputs:
+    azureSubscription: '$(Parameters.connectedServiceName)'
+    WebAppName: '$(Parameters.WebAppName)'
+    Package: '$(build.artifactstagingdirectory)/**/*.zip'
+
+- task: PublishSymbols@2
+  displayName: 'Publish symbols path'
+  inputs:
+    SearchPattern: '**\bin\**\*.pdb'
+    PublishSymbols: false
+    continueOnError: true
+    
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
