@@ -13,6 +13,8 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  WebAppName: 'ContosoUniversity-demo'
+  connectedServiceName: 'Free Trial'
 
 steps:
 - task: NuGetToolInstaller@0
@@ -36,8 +38,8 @@ steps:
 - task: AzureRmWebAppDeployment@3
   displayName: 'Azure App Service Deploy: ContosoUniversity-demo'
   inputs:
-    azureSubscription: '$(Parameters.connectedServiceName)'
-    WebAppName: '$(Parameters.WebAppName)'
+    azureSubscription: '$(connectedServiceName)'
+    WebAppName: '$(WebAppName)'
     Package: '$(build.artifactstagingdirectory)/**/*.zip'
 
 - task: PublishSymbols@2
