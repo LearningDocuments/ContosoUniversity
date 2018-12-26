@@ -14,7 +14,6 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   WebAppName: 'ContosoUniversity-demo'
-  connectedServiceName: 'yaml'
   
 
 steps:
@@ -39,7 +38,7 @@ steps:
 - task: AzureRmWebAppDeployment@3
   displayName: 'Azure App Service Deploy: ContosoUniversity-demo'
   inputs:
-    azureSubscription: '$(connectedServiceName)'
+    azureSubscription: 'yaml'
     WebAppName: '$(WebAppName)'
     Package: '$(build.artifactstagingdirectory)/**/*.zip'
 
