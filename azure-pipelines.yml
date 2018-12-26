@@ -38,7 +38,7 @@ steps:
 - task: AzureRmWebAppDeployment@3
   displayName: 'Azure App Service Deploy: ContosoUniversity-demo'
   inputs:
-    azureSubscription: 'FreeTrial'
+    azureSubscription: 'Free Trial'
     WebAppName: '$(WebAppName)'
     Package: '$(build.artifactstagingdirectory)/**/*.zip'
 
