@@ -14,7 +14,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   WebAppName: 'ContosoUniversity-demo'
-  connectedServiceName: 'Free Trial'
+  
 
 steps:
 - task: NuGetToolInstaller@0
