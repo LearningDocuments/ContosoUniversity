@@ -14,6 +14,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   WebAppName: 'ContosoUniversity-demo'
+  connectedServiceName: 'FreeTrial'
   
 
 steps:
